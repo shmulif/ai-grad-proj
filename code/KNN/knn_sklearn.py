@@ -1,3 +1,4 @@
+from sklearn.neighbors import KNeighborsClassifier
 import os
 import numpy as np
 import pandas as pd
@@ -67,12 +68,7 @@ X = scaler.fit_transform(X)
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Train the KNN model
-classifier = KNN(k=5)
-classifier.fit(X_train, y_train)
-
-# Predict and evaluate
-predictions = classifier.predict(X_test)
-accuracy = np.sum(predictions == y_test) / len(y_test)
-
-print("Accuracy:", accuracy)
+sk_knn = KNeighborsClassifier(n_neighbors=5)
+sk_knn.fit(X_train, y_train)
+sk_preds = sk_knn.predict(X_test)
+print("Sklearn Accuracy:", np.mean(sk_preds == y_test))
