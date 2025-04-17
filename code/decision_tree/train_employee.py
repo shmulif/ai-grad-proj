@@ -65,9 +65,12 @@ csv_path = os.path.join(script_dir, "../data/Employee 1000x.csv")
 data = pd.read_csv(csv_path)
 X, y, label_encoder = preprocess_employee_data(data)
 
-# Standardize numeric features (not strictly necessary for decision trees, but doesn't hurt)
-scaler = StandardScaler()
-X = scaler.fit_transform(X)
+# convert X to a NumPy array here
+X = X.values
+
+# # Standardize numeric features (not strictly necessary for decision trees, but doesn't hurt)
+# scaler = StandardScaler()
+# X = scaler.fit_transform(X)
 
 # === Train-Test Split ===
 X_train, X_test, y_train, y_test = train_test_split(
@@ -75,7 +78,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # === Train Custom Decision Tree ===
-clf = DecisionTree()
+clf = DecisionTree(max_depth=10)
 clf.fit(X_train, y_train)
 
 predictions = clf.predict(X_test)
