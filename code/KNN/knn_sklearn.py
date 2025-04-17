@@ -68,7 +68,7 @@ X = scaler.fit_transform(X)
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-sk_knn = KNeighborsClassifier(n_neighbors=5)
+sk_knn = KNeighborsClassifier(n_neighbors=15)
 sk_knn.fit(X_train, y_train)
 sk_preds = sk_knn.predict(X_test)
 print("Sklearn Accuracy:", np.mean(sk_preds == y_test))

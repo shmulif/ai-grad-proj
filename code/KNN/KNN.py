@@ -1,8 +1,8 @@
 import numpy as np
 from collections import Counter
 
-def euclidian_distance(x1, x2):
-    distance = np.sqrt(np.sum(x1-x2)**2)
+def euclidean_distance(x1, x2):
+    distance = np.sqrt(np.sum((x1-x2)**2))
     return distance
 
 class KNN:
@@ -26,7 +26,7 @@ class KNN:
 
         """ compute the distance """
 
-        distances = [euclidian_distance(x, x_train) for x_train in self.X_train]
+        distances = [euclidean_distance(x, x_train) for x_train in self.X_train]
 
 
         """ get closest k """
