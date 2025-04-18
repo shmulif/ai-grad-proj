@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
-from KNN import KNN
+from sklearn.neighbors import KNeighborsClassifier
+from knn import KNN
 from datetime import datetime
 
 def categorize_job_title(title):
@@ -79,7 +80,7 @@ X_scaled = scaler.fit_transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
 # Train KNN model
-classifier = KNN(k=6)
+classifier = KNN(k=15)
 classifier.fit(X_train, y_train)
 
 # Predict and evaluate
@@ -90,3 +91,9 @@ print("Accuracy:", accuracy)
 
 # Optional: Show what the labels mean
 # print("Label mapping:", dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_))))
+
+# Compare to sklearn's knn
+sk_knn = KNeighborsClassifier(n_neighbors=15)
+sk_knn.fit(X_train, y_train)
+sk_preds = sk_knn.predict(X_test)
+print("Sklearn Accuracy:", np.mean(sk_preds == y_test))

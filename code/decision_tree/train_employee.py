@@ -78,7 +78,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # === Train Custom Decision Tree ===
-clf = DecisionTree(max_depth=10)
+clf = DecisionTree()
 clf.fit(X_train, y_train)
 
 predictions = clf.predict(X_test)
