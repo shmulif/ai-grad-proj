@@ -28,7 +28,7 @@ X_scaled = scaler.fit_transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.1, random_state=42)
 
 # Train a neural network
-model = MLPClassifier(hidden_layer_sizes=(100,), activation='relu', max_iter=250, random_state=42)
+model = MLPClassifier(hidden_layer_sizes=(100,), activation='relu', max_iter=300, random_state=42)
 model.fit(X_train, y_train)
 
 # Evaluate
