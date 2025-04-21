@@ -20,7 +20,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Train-test split
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42) # test_size=0.2 means that we test the accuracy using 20% of the data. The other 80% is used for training 
 
 # Train KNN model
 classifier = KNN(k=15) # play with different k values
