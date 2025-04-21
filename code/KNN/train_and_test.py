@@ -13,7 +13,7 @@ csv_path = os.path.join(script_dir, "../data/Employee 1000x.csv") # change path 
 
 # Load and preprocess data
 data = pd.read_csv(csv_path)
-X, y, label_encoder = preprocess_employee_data(data) # new prepocessing
+X, y, label_encoder = preprocess_employee_data(data) # replace with new prepocessing
 
 # Scale features
 scaler = StandardScaler()
