@@ -133,19 +133,10 @@ plt.show()
 
 
 # Cross-validation
-# scores = cross_val_score(model, X_scaled, y, cv=5)
+model = MLPClassifier(hidden_layer_sizes=(100,), activation='relu', max_iter=300, random_state=42)
 
-# # Print results
-# print("Cross-validation scores:", scores)
-# print(f"Mean accuracy: {scores.mean():.3f}")
-# print(f"Standard deviation: {scores.std():.3f}")
+scores = cross_val_score(model, X_scaled, y, cv=5)
 
-# plt.figure(figsize=(8, 4))
-# plt.plot(range(1, 6), scores, marker='o')
-# plt.title("5-Fold Cross-Validation Scores")
-# plt.xlabel("Fold")
-# plt.ylabel("Accuracy")
-# plt.ylim(0.7, 1.0)
-# plt.grid(True)
-# plt.tight_layout()
-# plt.show()
+print("Cross-validation scores:", scores)
+print(f"Mean accuracy: {scores.mean():.3f}")
+print(f"Standard deviation: {scores.std():.3f}")
