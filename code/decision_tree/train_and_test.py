@@ -9,7 +9,7 @@ from datetime import datetime
 # === Load and Preprocess Data ===
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(script_dir, "../data/Employee 1000x.csv") # change path to correct data
+csv_path = os.path.join(script_dir, "../data/heart.csv") # change path to correct data
 
 data = pd.read_csv(csv_path)
 X, y, label_encoder = preprocess_employee_data(data) # replace with new prepocessing
