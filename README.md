@@ -3,7 +3,7 @@
 
 This project explores three supervised learning algorithms: **Neural Network**, **Decision Tree**, and **K-Nearest Neighbors (KNN)**. Each algorithm is implemented in its own module under the `code/` directory.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 code/
@@ -18,7 +18,7 @@ code/
 
 ---
 
-## 🚀 How to Run the Code
+## How to Run the Code
 
 ### 1. Neural Network
 To run the neural network model:
@@ -45,7 +45,7 @@ This will automatically load the dataset and use the implementation found in `kn
 
 ---
 
-## 📚 Source Attribution
+## Source Attribution
 
 - **Neural Network** and **Decision Tree** models use `scikit-learn`.  
   Documentation: https://scikit-learn.org/
