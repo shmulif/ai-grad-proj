@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import cross_val_score
 import matplotlib.pyplot as plt
 
 # Loading data set
@@ -51,6 +52,16 @@ for crit in criteria:
     test_acc  = accuracy_score(y_test,  model.predict(X_test))
     train_errors.append(1 - train_acc)
     test_errors.append(1 - test_acc)
+
+# Cross-validation
+
+scores = cross_val_score(
+    classifier, X, y,
+    cv=5,
+    scoring='accuracy'
+)
+
+print("CV accuracy:", scores.mean(), "±", scores.std())
 
 # Plot error rates
 x = range(len(criteria))
